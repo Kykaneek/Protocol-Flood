@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Flooder": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
