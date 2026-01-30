@@ -3,25 +3,27 @@
 
 <h1>Protocol Flood</h1>
 
-Ninniejsza aplikacja została stworzona na potrzeby przedmiotu **Bezpieczeństwo sieciowe** 
+Niniejsza aplikacja została stworzona na potrzeby przedmiotu **Bezpieczeństwo sieciowe** 
 
 Składa się z 3 części: 
 
- - Aplikacji UI Windows Forms - instalujemy na stacji roboczej - branch master
- - Aplikacji TCPServer - instalujemy na serwerze - branch backend
- - Flooder - instalujemy na serwerze - branch flooder
+ - ****Aplikacji UI Windows Forms**** - instalujemy na stacji roboczej - branch master
+ - ****Aplikacji TCPServer**** - instalujemy na serwerze - branch backend
+ - ****Flooder**** - instalujemy na serwerze - branch flooder
 
-Każda z częśći aplikacji znajduje się na innym branchu, iż każda znich to jest osobny projekt <br>
-Wszystkie aplikacje uruchamiamy w Visual Studio code W celu ich pierwornemu przetestowania
+Każda z częśći aplikacji znajduje się na innym branchu, iż każda znich to jest osobnym projektem <br>
+Wszystkie aplikacje uruchamiamy w ****Visual Studio Community**** w celu ich pierwornego przetestowania.
 
 ***UWAGA!*** 
 
-1. Aplikację z flooderem uruchamiamy ***TYLKO*** w środowisku hermetycznym - jest to projekt edukacyjny
-2. Należy przygorować środowisko wirtualne składające się z 3 maszyn - 1 maszyny Windows 10/11 oraz 2 Maszyn z Windows Server 2016
+1. Aplikację z flooderem uruchamiamy ***TYLKO*** w środowisku hermetycznym - jest to projekt edukacyjny - NIE NALEŻY FLOODERA URUCHAMIAĆ W LOKALNEJ SIECI - MOŻE ON ZAKŁUCIĆ DZIAŁANIE FUNKCJONOWANIA NIEKTÓRYCH USŁUG<br>
+(flooder jest ustawiony tak by atakował konkretny adres IP i port)
+2. Należy przygotować środowisko wirtualne składające się z 3 maszyn - 1 maszyny Windows 10/11 oraz 2 Maszyn z Windows Server 2016
 3. Aplikacje TCPServer i Flooder instalujemy na maszynach Wirtualnych tylko z Windowsem Server z zainstalowanym **Docker Desktop** oraz **WSL2** z zainstalowaną dystrybucją linux - w moim wypadku było to ubuntu 
 
 <h3>ClientTCP</h3>
-Uwaga! - Wszystkie czynności możemy wykonać na maszynie wirtualnej z Windowsem 10 / Windowsem 11 bądź na standardowej maszynie - aplikację trzeba wykompilować,<br>
+
+***UWAGA!*** - Wszystkie czynności możemy wykonać na maszynie wirtualnej z Windowsem 10 / Windowsem 11 bądź na standardowej maszynie - aplikację trzeba wykompilować,
 następnie można ją przenieść na środowisko maszyny wirtualnej - według uznania
 
 1. Aby pobrać klientaTCP należy włączyć IDE Visual Studio Community i pobrać repozytorium → wybierz ***Klonuj Repozytorium***<br>
@@ -61,12 +63,11 @@ Przebieg instalacyjny jest ten sam dla jednej i drugiej aplikacji. Należy przej
 
 <h4>CMD/PowerShell</h4>
 
-1. Włącz konsoleę PowerShell lub CMD i przejdź do folderu z aplikacją[Dockerfile.txt](https://github.com/user-attachments/files/24947415/Dockerfile.txt)
-
-2. Stwórz podstawowy plik dockerfile → ***Przykład*** [Uploading Dockerfile…]()
-
+1. Włącz konsoleę PowerShell lub CMD i przejdź do folderu z aplikacją
+2. Stwórz podstawowy plik dockerfile → ***Przykład*** [Dockerfile.txt](https://github.com/user-attachments/files/24947415/Dockerfile.txt)
 3. Wykonaj polecenie `docker build -t `*`nazwa aplikacji`*` .` np. `docker build -t tcpserver .`
-4.  Wykonaj polecenie `docker run -p 5000:5000  `*`nazwa aplikacji`*` .` np. `docker run -p 5000:5000 tcpserver .`
+4.  Wykonaj polecenie `docker run -p 5000:5000  `*`nazwa aplikacji`*` .` np. `docker run -p 5000:5000 tcpserver .` <br>
+**Uwaga** → W przypadku aplikacji Flooder należy wybrać inny port niż 5000 np. 4000. Aplikacje TCPServer stawiamy na porcie 5000.
 
-**Uwaga** → q przypadku aplikacji Flooder należy wybrać inny port niż 5000 np. 4000
+***<h2>Po uruchomieniu każdego z środowisk, aplikacje powinny się zachowywać tak jak na symulacji w Dokumentacji</h2>***
 
