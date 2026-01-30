@@ -44,7 +44,7 @@ Następnie wybierz **Klonuj**<br>
 Aplikacja została uruchomiona poprawnie - można spakować folder **net10.0-windows** i wypakować aplikację na maszynie wirtualnej z Windowsem 10 / 11
 
 
-<h3>SerrverTCP i Flooder</h3>
+<h3>ServerTCP i Flooder</h3>
 
 Przebieg instalacyjny jest ten sam dla jednej i drugiej aplikacji. Należy przejść poniższe kroki
 
